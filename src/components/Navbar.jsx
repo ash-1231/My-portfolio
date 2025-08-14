@@ -30,6 +30,7 @@ const profiles = [
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinksRef = useRef([]);
   const dropdownRef = useRef(null);
   const dropdownLinksRef = useRef([]);
@@ -78,12 +79,26 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-sm shadow-lg z-50">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-        {/* Replaceable title/logo */}
+        {/* Logo */}
         <a href="#hero" className="text-2xl font-bold text-teal-400">
           MyPortfolio
         </a>
 
-        {/* Menu */}
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden flex items-center text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            {isMobileMenuOpen ? (
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            ) : (
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+            )}
+          </svg>
+        </button>
+
+        {/* Desktop Menu */}
         <div className="space-x-6 hidden md:flex items-center">
           <a
             ref={(el) => (navLinksRef.current[0] = el)}
@@ -163,6 +178,60 @@ export default function Navbar() {
           </a>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800 px-4 pb-4 space-y-2">
+          <a
+            href="#about"
+            className="block py-2 text-white hover:text-teal-400"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            About
+          </a>
+          <a
+            href="#projects"
+            className="block py-2 text-white hover:text-teal-400"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Projects
+          </a>
+          <a
+            href="#skills"
+            className="block py-2 text-white hover:text-teal-400"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Skills
+          </a>
+
+          {/* Mobile Profiles */}
+          <div>
+            <p className="text-gray-400 text-sm mb-1">Profiles</p>
+            {profiles.map(({ name, url, imgSrc }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center py-2 text-white hover:text-teal-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <img src={imgSrc} alt={`${name} logo`} className="w-5 h-5 mr-2 rounded" />
+                {name}
+              </a>
+            ))}
+          </div>
+
+          <a
+            href="#contact"
+            className="block py-2 text-white hover:text-teal-400"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </a>
+        </div>
+      )}
     </nav>
   );
 }
+
