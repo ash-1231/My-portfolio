@@ -101,8 +101,8 @@ export default function Hero() {
           Building modern AI-powered web apps with passion and precision.
         </p>
         <button
-          className="mt-8 px-8 py-3 bg-cyan-500 rounded-full text-black font-semibold hover:bg-cyan-400 transition"
-          onClick={() => window.open("https://drive.google.com/file/d/1-qAn_eirFYzVc2zg7cG6RTiZ3zlcWZji/view?usp=drive_link", "_blank")}
+          className="mt-8 px-8 py-3 bg-cyan-500 rounded-full text-black font-semibold hover:bg-cyan-400 transition cursor-pointer"
+          onClick={() => window.open("https://drive.google.com/file/d/1-qAn_eirFYzVc2zg7cG6RTiZ3zlcWZji/view?usp=sharing", "_blank")}
         >
           View Resume
         </button>
