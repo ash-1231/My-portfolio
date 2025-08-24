@@ -81,7 +81,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo */}
         <a href="#hero" className="text-2xl font-bold text-teal-400">
-          MyPortfolio
+          Ashutosh
         </a>
 
         {/* Mobile Menu Toggle */}
