@@ -6,7 +6,7 @@ const Projects = () => {
     <div className="bg-black min-h-screen flex flex-col items-center gap-10 py-10">
       <ProjectCard
         title="Eznotes"
-        description=""
+        description="EzNotes is a simple and intuitive note-taking web app built with Next.js and Firebase, designed for quick and organized note management. It provides a clean interface with seamless authentication and real-time cloud storage"
         color="#00ff00"
       />
       <ProjectCard
