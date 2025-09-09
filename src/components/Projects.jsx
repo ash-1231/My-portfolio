@@ -5,8 +5,8 @@ const Projects = () => {
   return (
     <div className="bg-black min-h-screen flex flex-col items-center gap-10 py-10">
       <ProjectCard
-        title="Green Project"
-        description="This is a green-themed project."
+        title="Eznotes"
+        description=""
         color="#00ff00"
       />
       <ProjectCard
